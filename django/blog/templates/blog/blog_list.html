@@ -1,0 +1,19 @@
+{% extends 'blog/blog_base.html' %}
+{% block title %}ListView{% endblock %}
+{% block css %}{% load static %}
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}" />{% endblock %}
+{% block content %}
+<div class="container">
+<div class="row" id="shark">
+
+    <h1>
+        blog_list.html
+    </h1>
+    <ol>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link2</a></li>
+        <li><a href="#">Link3</a></li>
+    </ol>
+</div>
+</div>
+{% endblock %}

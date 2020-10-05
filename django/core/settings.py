@@ -32,7 +32,10 @@ ALLOWED_HOSTS = ['localhost','127.0.0.1','nyntofive.com']
 
 INSTALLED_APPS = [
     # local
+    'blog.apps.BlogConfig',
+    'blog_api.apps.BlogApiConfig',
     'product.apps.ProductConfig',
+
     # Django
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     # Third-Party
     'django_extensions',
     'taggit',
@@ -61,7 +65,7 @@ ROOT_URLCONF = 'core.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, "templates")],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -74,7 +78,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'project.wsgi.application'
+WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database
@@ -125,3 +129,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    ("blog_assets", "/c/Users/nynto/Desktop/_Projects/Django/Project/tmp/zatic/"),
+]
