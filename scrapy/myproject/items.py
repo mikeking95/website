@@ -1,15 +1,4 @@
-from scrapy_djangoitem import DjangoItem
-
-from product.models import Product
-
 import scrapy
-
-class KnifekitsDJItem(DjangoItem):
-    django_model = Product
-    sku = scrapy.Field()
-    name = scrapy.Field()
-    url = scrapy.Field()
-    image = scrapy.Field()
 
 
 class CkkItem(scrapy.Item):

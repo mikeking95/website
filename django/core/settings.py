@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Third-Party
-    'restframework',
+    'rest_framework',
+    'corsheaders',
     'django_extensions',
     'taggit',
 
@@ -54,6 +55,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -131,5 +133,22 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    ("blog_assets", "/c/Users/nynto/Desktop/_Projects/Django/Project/tmp/zatic/"),
+    # ("blog_assets", "/c/Users/nynto/Desktop/_Projects/Django/Project/tmp/zatic/"),
+]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ]
+}
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8000",
+    "http://localhost:3000",
+    "http://10.0.0.232:3000",
+    "http://10.0.0.232:8000",
+    "http://nyntofive.com",
+    "https://nyntofive.com",
+    "http://127.0.0.1:8000",
+    "http://127.0.0.1:3000",
 ]

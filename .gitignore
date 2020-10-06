@@ -18,3 +18,6 @@ db.sqlite3
 ckk/
 htmlcov/
 .cov*
+nyncli/
+node_modules/
+

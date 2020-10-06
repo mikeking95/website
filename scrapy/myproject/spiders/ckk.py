@@ -4,8 +4,8 @@ import datetime
 from datetime import datetime as dt
 import arrow
 import scrapy
-
 from myproject.items import CkkItem
+
 
 def fetch_map(url):
     '''Fetch sitemap and return parsed txt'''
@@ -28,25 +28,23 @@ def parse_xml(response):
 def parse_all(response):
     urls = response.html.xpath('//loc/text()')
     return urls
-def get_urls_to_crawl():
+
+def get_urls_to_crawl(days=-7):
     '''
     Fetch sitemaps and determine what urls to crawl.
-    Return a dict of product urls per shop / sitemap
+    
+    Returns a list of urls to use in the spider.
     '''
     session = HTMLSession()
-    # kk_sitemap = 'https://knifekits.com/vcom/smproducts.xml'
-    # hs_sitemap = 'https://holstersmith.com/vcom/smproducts.xml'
+    kk_sitemap = 'https://knifekits.com/vcom/smproducts.xml'
+    hs_sitemap = 'https://holstersmith.com/vcom/smproducts.xml'
     
-    # kk_urls =  parse_xml(fetch_map(kk_sitemap))
-    # hs_urls =  parse_xml(fetch_map(hs_sitemap))
-
+    kk_urls =  parse_xml(fetch_map(kk_sitemap))
+    hs_urls =  parse_xml(fetch_map(hs_sitemap))
     # all_kk = parse_all(fetch_map(kk_sitemap))
-    all_hs = parse_all(fetch_map(hs_sitemap))
-    
-    # both = kk_urls + hs_urls
-    return all_hs
+    # all_hs = parse_all(fetch_map(hs_sitemap))
+    return kk_urls + hs_urls
 
-session = HTMLSession()
 
 class CkkSpider(scrapy.Spider):
     name = 'ckk'

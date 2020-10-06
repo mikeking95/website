@@ -1,8 +1,6 @@
 import sys
-sys.path.append('/c/Users/nynto/Desktop/_Projects/Django/Project/myproject')
-import os
-os.environ['DJANGO_SETTINGS_MODULE'] = 'project.settings'
 
+sys.path.append('/c/Users/nynto/Desktop/_Projects/Django/Project/django')
 
 BOT_NAME = 'myproject'
 
@@ -23,8 +21,8 @@ ITEM_PIPELINES = {
     'myproject.pipelines.CkkImagesPipeline': 30,
     "myproject.pipelines.MongoPipeline": 300,
 }
-IMAGES_STORE = os.path.join(os.getcwd(),"HS")
-# MONGO_URI = 
+IMAGES_STORE = os.path.join(os.getcwd(),"CKK")
+
 MONGO_URI = os.environ.get("MONGO_URI")
 MONGO_DATABASE = os.environ.get("MONGO_DATABASE")
 
