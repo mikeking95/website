@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # Third-Party
+    'restframework',
     'django_extensions',
     'taggit',
 
